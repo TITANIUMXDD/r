@@ -15,3 +15,5 @@ MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://akshaygamer:akshaygamer@clu
 LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "798393054"))
 DURATION_LIMIT = int(getenv("DURATION_LIMIT", "54000"))
 OWNER_ID = list(map(int, getenv("OWNER_ID", "5001717969").split())) 
+COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", "/ ! . $").split())
+SUDO_USERS = list(map(int, getenv("SUDO_USERS", "5001717969").split()))
