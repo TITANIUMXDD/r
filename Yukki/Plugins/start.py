@@ -20,34 +20,34 @@ from Yukki import app, BOT_USERNAME, BOT_ID, ASSID, ASSNAME, ASSUSERNAME, OWNER,
 from Yukki.YukkiUtilities.database.chats import get_served_chats, is_served_chat, add_served_chat
 
 
-def start_pannel():  
+def start_pannel(): 
     buttons = [
             [
                 InlineKeyboardButton(text="📚 Commands", url="https://telegra.ph/Veez-Mega-Guide-01-10")
             ],
             [ 
-                InlineKeyboardButton(text="📣 Channel", url="https://t.me/levinachannel"),
-                InlineKeyboardButton(text="💭 Group", url="https://t.me/VeezSupportGroup")
+                InlineKeyboardButton(text="📣 Channel", url="https://t.me/Titanium_Xyz"),
+                InlineKeyboardButton(text="💭 Group", url="https://t.me/TitaniumChats")
             ],
     ]
-    return "✨ This is veez mega, a bot that can play music trough the Telegram Group video chat feature.", buttons
+    return "✨ This is Titanium Music Bot, a bot that can play music trough the Telegram Group video chat feature.", buttons
 
 
 pstart_markup = InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "➕ Add me to your Group ➕", url="https://t.me/VeezMegaBot?startgroup=true")
+                        "➕ Add me to your Group ➕", url="https://t.me/Titanium_Xyz?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                        "📚 Commands", url="https://telegra.ph/Veez-Mega-Guide-01-10"),
+                        "📚 Commands", url="https://t.me/"),
                     InlineKeyboardButton(
-                        "❓ Setup Guide", url="https://telegra.ph/Veez-Mega-Guid-11-19")
+                        "📣 Developer", url="https://t.me/TitaniumXd")
                 ],[
                     InlineKeyboardButton(
-                        "👥 Official Group", url="https://t.me/VeezSupportGroup"), 
+                        "👥 Official Group", url="https://t.me/TitaniumChats"), 
                     InlineKeyboardButton(
-                        "📎 Official Channel", url="https://t.me/levinachannel")
+                        "📎 Official Channel", url="https://t.me/Titanium_XyZ")
                 ],
             ]
         )
@@ -79,12 +79,7 @@ async def welcome(_, message: Message):
 @Client.on_message(filters.group & filters.command(["start", "help"]))
 async def start(_, message: Message):
     chat_id = message.chat.id
-    if not await is_served_chat(chat_id):
-        await message.reply(f"❌ **This chat not authorized !**\n\nI can't stream music in non-authorized chat, ask to sudo user to auth this chat.\n\nCheck the sudo user list [From Here](https://t.me/{BOT_USERNAME}?start=sudolist)", disable_web_page_preview=True)
-        return await app.leave_chat(chat_id)
-    out = start_pannel()
-    await message.reply_text(f"👋🏻 Hi {message.from_user.mention}!\n\n💭 Appoint me as admin in your Group to be able play music, otherwise you can't use my service.", reply_markup=InlineKeyboardMarkup(out[1]))
-    return
+    
 
 
 @Client.on_message(filters.private & filters.incoming & filters.command("start"))
@@ -94,7 +89,7 @@ async def play(_, message: Message):
         user_name = message.from_user.first_name
         rpk = "["+user_name+"](tg://user?id="+str(user_id)+")" 
         await app.send_message(message.chat.id,
-            text=f"Hi {rpk} 👋🏻\n\nℹ️ [Veez Mega](https://t.me/VeezMegaBot) **Can** play music on your **Groups** through the **Telegram Group video chat** feature !\n\n💭 **Check out** all the **Bot commands** and how they work by clicking on the » 📚 **Commands** button !",
+            text=f"Hi {rpk} 👋🏻\n\nℹ️ [Titanium](https://t.me/TitaniumXyzBot) **Can** play music on your **Groups** through the **Telegram Group video chat** feature !\n\n💭 **Check out** all the **Bot commands** and how they work by clicking on the » 📚 **Commands** button !",
             parse_mode="markdown",
             reply_markup=pstart_markup,
             reply_to_message_id=message.message_id,
